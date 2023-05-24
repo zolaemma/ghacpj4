@@ -18,6 +18,10 @@ jobs:
           aws-region: us-east-1
       - uses: hashicorp/setup-terraform@v2
 
+      - name: tf_fmt
+        id: fmt
+        run: terraform fmt
+
       - name: tf_init
         id: init
         run: terraform init
