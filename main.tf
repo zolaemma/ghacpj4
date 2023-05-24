@@ -16,11 +16,8 @@ data "aws_vpc" "main" {
   resource "aws_security_group" "ghac-pj4" {
   name        = "ghac-pj4"
   description = "Allow TLS inbound traffic"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id = "data.aws_vpc.default.id"
   
-
-  
-
   ingress {
     description      = "TLS from VPC"
     from_port        = 443
