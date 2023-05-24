@@ -4,13 +4,13 @@ on: push
 jobs:
     creds_check:
 
-      name: Terraform Validation and Build
+      name: build phase
       runs-on: ubuntu-latest
 
       steps:
       - uses: actions/checkout@v3
 
-      - name: Configure AWS Credentials Action For GitHub Actions
+      - name: aws phase
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
