@@ -4,7 +4,7 @@ on: push
 jobs:
     creds_check:
 
-      name: Build phase
+      name: Terraform Validation and Build
       runs-on: ubuntu-latest
 
       steps:
