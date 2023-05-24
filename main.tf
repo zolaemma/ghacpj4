@@ -8,7 +8,7 @@ resource "aws_key_pair" "ghac-pj4" {
 #referencing the aws default vpc
 
 data "aws_vpc" "main" {
-    main = true
+    default = true
 }
 
   #creating security groups
@@ -16,7 +16,7 @@ data "aws_vpc" "main" {
   resource "aws_security_group" "ghac-pj4" {
   name        = "ghac-pj4"
   description = "Allow TLS inbound traffic"
-  vpc_id      = data.aws_vpc.main.id
+  vpc_id      = data.aws_vpc.default.id
   
 
   
