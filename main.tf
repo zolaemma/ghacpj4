@@ -13,8 +13,8 @@ resource "aws_key_pair" "ghac-pj5" {
 
   #creating security groups
 
-  resource "aws_security_group" "ghac-pj5" {
-  name        = "ghac-pj5"
+  resource "aws_security_group" "ghac-pj6" {
+  name        = "ghac-pj6"
   description = "Allow TLS inbound traffic"
   vpc_id = data.aws_vpc.default.id
   
