@@ -70,4 +70,4 @@ resource "aws_instance" "ghac-pj5" {
   tags = {
     Name = "ghac-pj5"
   }
- }
+ } 
