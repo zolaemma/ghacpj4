@@ -7,7 +7,7 @@ resource "aws_key_pair" "ghac-pj4" {
 }
 #referencing the aws default vpc
 
-data "aws_vpc" "main" {
+data "aws_vpc" "default" {
     default = true
 }
 
