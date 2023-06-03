@@ -34,6 +34,13 @@ resource "aws_key_pair" "ghac-pj6" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
     
+    ingress {
+    description      = "TLS from VPC"
+    from_port        = 8080
+    to_port          = 8080
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
 
     ingress {
     description      = "TLS from VPC"
@@ -61,7 +68,7 @@ resource "aws_key_pair" "ghac-pj6" {
 #creating an ec2 instrance
 
 resource "aws_instance" "ghac-pj6" {
-  ami           = "ami-0261755bbcb8c4a84"
+  ami = "ami-0261755bbcb8c4a84"
   instance_type = "t2.micro"
   key_name = "ghac-pj6"
   vpc_security_group_ids = [aws_security_group.ghac-pj6.id]
