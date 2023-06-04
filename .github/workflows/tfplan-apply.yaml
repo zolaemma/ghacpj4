@@ -1,5 +1,7 @@
 name: ghacpj4
 on: push
+  branches:
+    - main
 
 jobs:
     creds_check:
