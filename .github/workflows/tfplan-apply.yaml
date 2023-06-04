@@ -1,0 +1,39 @@
+name: ghac-pj1
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+    creds_check:
+
+      name: build phase
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v3
+
+      - name: aws phase
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - uses: hashicorp/setup-terraform@v2
+
+      - name: tf_fmt
+        id: fmt
+        run: terraform fmt
+
+      - name: tf_init
+        id: init
+        run: terraform init
+
+      - name: tf_Plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
+
+      - name: tf_apply
+        run: terraform apply  --auto-approve  
